@@ -5,7 +5,7 @@ import Taskcard from "./Taskcard";
 import { configureStore } from "@reduxjs/toolkit";
 import tasksReducer from "../store/slices/tasksSlice";
 
-// ✅ Mock drag & drop
+//  Mock drag & drop
 vi.mock("@hello-pangea/dnd", () => ({
   Draggable: ({ children }: any) =>
     children(
@@ -18,7 +18,7 @@ vi.mock("@hello-pangea/dnd", () => ({
     ),
 }));
 
-// ✅ Mock task
+//  Mock task
 const mockTask = {
   id: "1",
   title: "Test Task",
@@ -27,7 +27,7 @@ const mockTask = {
   status: "backlog",
 };
 
-// ✅ Simple inline test store (NO testStore file)
+//  Simple inline test store (NO testStore file)
 const createStore = (tasks = []) =>
   configureStore({
     reducer: {
