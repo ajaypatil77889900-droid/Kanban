@@ -1,0 +1,129 @@
+/* ===== Board Layout ===== */
+.board {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(260px, 1fr));
+  gap: 20px;
+  padding: 20px;
+  align-items: flex-start;
+  background: #f4f6f8;
+  height: 80vh;
+}
+
+/* ===== Header ===== */
+.board-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 10vh;
+
+  padding: 1rem;
+  border-bottom: 1px solid #e5e7eb;
+  background: #ffffff;
+
+  /* Optional: sticky header */
+  position: sticky;
+  top: 0;
+  z-index: 10;
+}
+
+.board-title {
+  margin: 0;
+  font-size: 20px;
+  font-weight: 700;
+  color: #111827;
+}
+
+/* ===== Add Task Button ===== */
+.add-btn {
+  padding: 8px 14px;
+  border-radius: 8px;
+  border: none;
+  background: #2563eb;
+  color: white;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.add-btn:hover {
+  background: #1d4ed8;
+}
+
+/* ===== Column Base (in case not styled yet) ===== */
+.column {
+  background: #ffffff;
+  border-radius: 10px;
+  padding: 12px;
+  display: flex;
+  flex-direction: column;
+  max-height: calc(100vh - 120px);
+}
+
+.column h3 {
+  margin: 0 0 12px;
+  font-size: 16px;
+  font-weight: 600;
+  color: #111827;
+  padding-bottom: 8px;
+  border-bottom: 1px solid #e5e7eb;
+}
+
+/* ===== Task List (Droppable) ===== */
+.task-list {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  overflow-y: auto;
+  padding-right: 4px;
+}
+
+/* ===== Scrollbar (optional) ===== */
+.task-list::-webkit-scrollbar {
+  width: 6px;
+}
+.task-list::-webkit-scrollbar-thumb {
+  background: #cbd5e1;
+  border-radius: 4px;
+}
+
+/* ===== Dragging Feedback ===== */
+.task-list:has(.task[data-dragging="true"]) {
+  background: #f1f5f9;
+}
+
+/* Tablet */
+@media (max-width: 900px) {
+  .board {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* Mobile */
+@media (max-width: 600px) {
+  .board-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 8px;
+  }
+
+  .board {
+    grid-template-columns: 1fr;
+  }
+
+  .add-btn {
+    width: 100%;
+  }
+}
+/* ===== Responsive ===== */
+@media (max-width: 1100px) {
+  .board {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 640px) {
+  .board {
+    grid-template-columns: 1fr;
+    padding: 12px;
+  }
+}
